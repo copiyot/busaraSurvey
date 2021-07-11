@@ -1,0 +1,25 @@
+<div class="card loginCard mt-5 p-3">
+    <div class="card-body">
+        <div class="card-title loginTitle text-center mb-3">
+            Login
+        </div>
+        <form>
+            <div class="form-group mb-3">
+              <label for="loginEmail">Email address</label>
+              <input type="email" class="form-control" [(ngModel)]="email" name="email" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <br>
+              <span class="text-danger">{{emailError}}</span>
+            </div>
+            <div class="form-group mb-3">
+              <label for="loginPassword">Password</label>
+              <input type="password" class="form-control" [(ngModel)]="password" name="password" id="loginPassword" placeholder="Enter Password">
+              <span class="text-danger">{{passwordError}}</span>
+            </div>
+            <div class="text-center">
+                <button type="button" (click)="onSubmit()" class="btn btn-primary loginBtn mb-2">LOGIN</button>
+                <div class="no-account">Don't have account? <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="signUpHere">Sign up here</a></div>
+            </div>
+          </form>
+    </div>
+  </div>

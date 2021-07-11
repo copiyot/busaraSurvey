@@ -1,0 +1,43 @@
+<div class="card loginCard mt-3 px-2">
+    <div class="card-body">
+        <div class="card-title loginTitle text-center mb-2">
+            Register
+        </div>
+        <form>
+            <div class="form-group mb-3">
+              <label for="loginEmail">Email address</label>
+              <input type="email" name="email" [(ngModel)]="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <br>
+              <span class="text-danger">{{emailError}}</span>
+            </div>
+            <div class="form-group mb-3">
+              <label for="loginPassword">Password</label>
+              <input type="password" name="password" [(ngModel)]="password" class="form-control" id="loginPassword" placeholder="Enter Password">
+              <span class="text-danger">{{passwordError}}</span>
+            </div>
+            <div class="form-group mb-3">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                <span class="text-danger">{{confirmPasswordError}}</span>
+                <br>
+                <span class="text-danger">{{samePasswordError}}</span>
+            </div>
+            <div class="form-group mb-3">
+                <label for="fullName">Full Name</label>
+                <input type="text" name="fullName" [(ngModel)]="fullName" class="form-control" id="fullName" placeholder="Enter Full Name">
+                <span class="text-danger">{{fullNameError}}</span>
+            </div>
+            <div class="form-group mb-3">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" name="phoneNumber" [(ngModel)]="phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                <span class="text-danger">{{phoneNumberError}}</span>
+            </div>
+            <div class="text-center">
+                <div class="terms-of__use mb-2">Already have an account? 
+                    <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="signUpHere">Login</a></div>
+                <button type="submit" (click)="onSubmit()" class="btn btn-primary loginBtn mb-2">REGISTER</button>
+            </div>
+          </form>
+    </div>
+  </div>

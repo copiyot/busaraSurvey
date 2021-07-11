@@ -1,0 +1,55 @@
+<div class="loader" *ngIf="!ready">Loading please wait...</div>
+
+<div class="error" *ngIf="showError">Oops! An error occurred</div>
+
+<form action="" *ngIf="ready" [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
+  <!-- page navigation -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let page of formTemplate.pages; index as i">
+      <a
+        class="nav-link"
+        [ngClass]="{ active: currentPage === i }"
+        aria-current="page"
+        (click)="setCurrentPage(i)"
+        >{{ page.name }}</a
+      >
+    </li>
+  </ul>
+
+  <!-- page contents -->
+  <div class="page-content" *ngFor="let page of formTemplate.pages; index as i">
+    <div class="content my-4" *ngIf="currentPage === i">
+      <!-- section -->
+      <div class="section" *ngFor="let section of page.sections; index as j">
+        <h6 class="display-4">{{ section.name }}</h6>
+
+        <!-- section questions -->
+        <div class="question" *ngFor="let question of section.questions">
+          <div [ngSwitch]="question.type">
+            <div *ngSwitchDefault>
+              <label class="form-label">{{ question.description }}</label>
+              <input type="text" class="form-control mb-4" [formControlName]="question.column_match"/>
+            </div>
+            <div *ngSwitchCase="'select'">
+              <p><span [innerHTML]="question.text"></span></p>
+              <div class="form-check" *ngFor="let option of question.q_options">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  [value]="option.id"
+                  [id]="option.id" [formControlName]="question.column_match"
+                />
+                <label class="form-check-label" [for]="option.id">
+                  {{ option.name }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-outline-success" type="submit">Submit</button>
+
+</form>

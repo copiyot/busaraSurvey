@@ -1,0 +1,23 @@
+.loginTitle{
+    font-size: 220%;
+}
+
+.loginCard{
+    width: 25rem;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.loginBtn{
+    width: 60%;
+    border-radius: 30px;
+}
+
+.termsOfUse{
+    color: #0096FF;
+}
+
+.signUpHere{
+    color: #0096FF;
+    text-decoration: none;
+}
